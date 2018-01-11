@@ -58,18 +58,6 @@ achieves2 level numbers = getOps xs dual
 getOps [] [] = Nothing
 getOps (x:xs) (y:ys) = if x then Just y else getOps xs ys
 
--- opsPermutated :: (Fractional a1, Foldable t) => t a2 -> [[a1 -> a1 -> a1]]
--- opsPermutated numbers = fillSlots ops ((length numbers) - 1) 
-
--- targets :: (Ord a, Fractional a) => Int -> Set a
--- targets level = Set.fromList . targetPrimes $ level
-
--- dual :: Fractional a1 => [a2] -> [([a2], [a1 -> a1 -> a1])]
--- dual n = dualPermu (List.permutations n) (opsPermutated n)
-
--- results :: Fractional b => [b] -> [b]
--- results n = map (uncurry apply) $ dual n
-
 dualPermu :: [a] -> [b] -> [(a, b)]
 dualPermu xs ys = concatMap f ys
   where 
